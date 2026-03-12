@@ -744,7 +744,7 @@ export default function Home() {
   const radarLabels = [t.radar.strategy, t.radar.risk, t.radar.growth, t.radar.roi, t.radar.tech]
 
   return (
-    <main className="min-h-screen bg-slate-900 relative">
+    <main className="min-h-screen bg-slate-50 relative">
       {/* 数据流与神经网络背景 */}
       <DataFlowBackground />
       
