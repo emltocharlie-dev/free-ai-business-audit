@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useI18n } from '../../contexts/I18nContext'
 import { LanguageToggle } from '../../components/LanguageToggle'
+import { Card } from '../../components/Card'
+import { Button } from '../../components/Button'
 
 export default function PricingPage() {
   const { t } = useI18n()
@@ -55,12 +57,9 @@ export default function PricingPage() {
           </Link>
           <div className="flex items-center gap-4">
             <LanguageToggle />
-            <Link
-              href="/audit-form"
-              className="font-mono text-xs px-4 py-2 bg-slate-900 text-white hover:bg-slate-800 transition-colors tracking-wider"
-            >
+            <Button href="/audit-form" variant="dark" size="sm">
               {t.nav.freeAudit}
-            </Link>
+            </Button>
           </div>
         </div>
       </header>
@@ -83,18 +82,20 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto mb-20">
         <div className="grid md:grid-cols-3 gap-6">
-          {plans.map((plan, index) => (
-            <div
+          {plans.map((plan, index) => {
+            const accentColor = plan.color === 'amber' ? 'amber' : plan.color === 'cyan' ? 'cyan' : 'none'
+            return (
+            <Card
               key={index}
-              className={`relative bg-white border-2 p-8 transition-all duration-300 ${
-                plan.popular
-                  ? 'border-amber-500 shadow-lg scale-105'
-                  : 'border-slate-200 hover:border-slate-300'
+              variant="elevated"
+              accent={accentColor}
+              className={`relative p-8 transition-all duration-300 ${
+                plan.popular ? 'scale-105' : ''
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="font-mono text-xs px-3 py-1 bg-amber-500 text-white tracking-wider">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <span className="font-mono text-xs px-3 py-1 bg-amber-500 text-white tracking-wider rounded-md">
                     MOST POPULAR
                   </span>
                 </div>
@@ -117,18 +118,15 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <Link
+              <Button
                 href={plan.href}
-                className={`block w-full font-mono text-sm px-6 py-3 text-center transition-all tracking-wider ${
-                  plan.popular
-                    ? 'bg-amber-500 text-white hover:bg-amber-600'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
+                variant={plan.popular ? 'primary' : 'outline'}
+                fullWidth
               >
                 {plan.cta}
-              </Link>
-            </div>
-          ))}
+              </Button>
+            </Card>
+          )})}
         </div>
       </div>
 
@@ -188,12 +186,9 @@ export default function PricingPage() {
           <p className="font-mono text-sm text-slate-600 mb-6">
             {t.cta.subheadline}
           </p>
-          <Link
-            href="/audit-form"
-            className="inline-block font-mono text-sm px-8 py-3 bg-amber-500 text-white hover:bg-amber-600 transition-all tracking-wider"
-          >
+          <Button href="/audit-form" variant="primary" size="lg">
             {t.cta.button}
-          </Link>
+          </Button>
         </div>
       </div>
 
