@@ -1311,7 +1311,7 @@ export default function Home() {
       {/* ============================================ */}
       {/* Footer */}
       {/* ============================================ */}
-      <footer className="py-8 px-6 md:px-8 border-t border-slate-200 bg-slate-900">
+      <footer className="relative z-20 py-8 px-6 md:px-8 border-t border-slate-700/60 bg-slate-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-6 h-6 bg-amber-500 flex items-center justify-center">
@@ -1320,11 +1320,26 @@ export default function Home() {
             <span className="font-mono text-sm text-white">FreeAI Audit</span>
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/audit-form" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Audit Form</Link>
-            <Link href="/contact" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Contact</Link>
-            <Link href="/pricing" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Pricing</Link>
+            <Link
+              href="/audit-form"
+              className="font-mono text-xs text-slate-300 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            >
+              Audit Form
+            </Link>
+            <Link
+              href="/contact"
+              className="font-mono text-xs text-slate-300 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/pricing"
+              className="font-mono text-xs text-slate-300 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            >
+              Pricing
+            </Link>
           </div>
-          <div className="font-mono text-xs text-slate-400">{t.footer.copyright}</div>
+          <div className="font-mono text-xs text-slate-300/80">{t.footer.copyright}</div>
         </div>
       </footer>
     </main>
