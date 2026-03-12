@@ -624,7 +624,7 @@ function DataFlowBackground() {
       </svg>
 
       {/* 渐变遮罩 */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-transparent to-slate-50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-slate-900" />
     </div>
   )
 }
@@ -751,34 +751,34 @@ export default function Home() {
       {/* ============================================ */}
       {/* Header */}
       {/* ============================================ */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-md border-b border-slate-200">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-slate-900 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
-              <span className="font-mono text-white text-sm font-bold">FA</span>
+            <div className="w-10 h-10 bg-amber-500 flex items-center justify-center group-hover:bg-amber-400 transition-colors">
+              <span className="font-mono text-slate-900 text-sm font-bold">FA</span>
             </div>
-            <span className="font-mono text-lg text-slate-900 tracking-tight group-hover:text-amber-500 transition-colors">FreeAI Audit</span>
+            <span className="font-mono text-lg text-white tracking-tight group-hover:text-amber-500 transition-colors">FreeAI Audit</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="font-mono text-sm text-cyan-500 hover:text-amber-500 transition-colors">{t.dashboard.home.navHome}</Link>
-            <a href="#services" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.services}</a>
-            <a href="#process" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.process}</a>
-            <a href="#why-us" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.whyUs}</a>
-            <Link href="#cta" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.dashboard.home.navAudit}</Link>
+            <Link href="/" className="font-mono text-sm text-cyan-400 hover:text-amber-500 transition-colors">{t.dashboard.home.navHome}</Link>
+            <a href="#services" className="font-mono text-sm text-slate-300 hover:text-amber-500 transition-colors">{t.nav.services}</a>
+            <a href="#process" className="font-mono text-sm text-slate-300 hover:text-amber-500 transition-colors">{t.nav.process}</a>
+            <a href="#why-us" className="font-mono text-sm text-slate-300 hover:text-amber-500 transition-colors">{t.nav.whyUs}</a>
+            <Link href="#cta" className="font-mono text-sm text-slate-300 hover:text-amber-500 transition-colors">{t.dashboard.home.navAudit}</Link>
           </nav>
           <div className="flex items-center gap-4">
             <LanguageToggle />
             <button 
               onClick={() => setMobileNavOpen(true)} 
-              className="md:hidden p-2 hover:bg-slate-100 rounded transition-colors"
+              className="md:hidden p-2 hover:bg-slate-800 rounded transition-colors"
             >
-              <svg className="w-6 h-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="square" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
             <Link 
               href="/audit-form" 
-              className="hidden md:inline-block font-mono text-xs px-6 py-3 bg-slate-900 text-white hover:bg-amber-500 transition-colors tracking-wider"
+              className="hidden md:inline-block font-mono text-xs px-6 py-3 bg-amber-500 text-slate-900 hover:bg-amber-400 transition-colors tracking-wider"
             >
               {t.nav.freeAudit}
             </Link>
