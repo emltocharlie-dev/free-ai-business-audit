@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useI18n } from '../../contexts/I18nContext'
 import { LanguageToggle } from '../../components/LanguageToggle'
+import { Card } from '../../components/Card'
 
 export default function AuditFormPage() {
   const { t } = useI18n()
@@ -62,24 +63,24 @@ export default function AuditFormPage() {
 
         {/* Info Cards */}
         <div className="mt-10 grid md:grid-cols-3 gap-4">
-          <div className="bg-white border border-slate-200 p-4 text-center">
-            <div className="w-8 h-8 bg-amber-500 text-white flex items-center justify-center mx-auto mb-2">
+          <Card variant="elevated" className="p-4 text-center">
+            <div className="w-8 h-8 bg-amber-500 text-white flex items-center justify-center mx-auto mb-2 rounded-sm">
               <span className="font-mono text-sm">✓</span>
             </div>
             <div className="font-mono text-xs text-slate-500">{t.auditForm.infoCards.free}</div>
-          </div>
-          <div className="bg-white border border-slate-200 p-4 text-center">
-            <div className="w-8 h-8 bg-cyan-500 text-white flex items-center justify-center mx-auto mb-2">
+          </Card>
+          <Card variant="elevated" className="p-4 text-center">
+            <div className="w-8 h-8 bg-cyan-500 text-white flex items-center justify-center mx-auto mb-2 rounded-sm">
               <span className="font-mono text-sm">🔒</span>
             </div>
             <div className="font-mono text-xs text-slate-500">{t.auditForm.infoCards.noDataSelling}</div>
-          </div>
-          <div className="bg-white border border-slate-200 p-4 text-center">
-            <div className="w-8 h-8 bg-orange-500 text-white flex items-center justify-center mx-auto mb-2">
+          </Card>
+          <Card variant="elevated" className="p-4 text-center">
+            <div className="w-8 h-8 bg-orange-500 text-white flex items-center justify-center mx-auto mb-2 rounded-sm">
               <span className="font-mono text-sm">⚡</span>
             </div>
             <div className="font-mono text-xs text-slate-500">{t.auditForm.infoCards.delivery}</div>
-          </div>
+          </Card>
         </div>
 
         {/* Back link */}
