@@ -1,0 +1,408 @@
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { useI18n } from '../contexts/I18nContext'
+import { LanguageToggle } from '../components/LanguageToggle'
+
+// Icon 组件 - 新线性发光科技风格
+function TechIcon({ name, className = "w-6 h-6" }: { name: string; className?: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    automation: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M24 8L38 16V32L24 40L10 32V16L24 8Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 18V24" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M20 24H28" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="3" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M12 32H36" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" strokeDasharray="2 2" />
+        <path d="M18 36H30" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" strokeDasharray="2 2" />
+      </svg>
+    ),
+    assistant: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M24 6L38 16L32 28H16L10 16L24 6Z" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M18 30C18 30 20 32 24 32C28 32 30 30 30 30" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    library: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M9 12C9 8 11 6 16 6H32C37 6 39 8 39 12V36C39 40 37 42 32 42H16C11 42 9 40 9 36V12Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 6V42" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="32" cy="24" r="6" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M32 18V20M32 28V30M28 24H30M34 24H36" stroke="currentColor" strokeWidth="1" />
+      </svg>
+    ),
+    robot: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 12V8M24 36V40M12 24H8M36 24H40" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M12 12L16 16M8 16L16 12" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M36 12L32 16M40 16L32 12" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M12 36L16 32M8 32L16 36" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M36 36L32 32M40 32L32 36" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+      </svg>
+    ),
+    audit: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M12 18V30C12 33.3137 14.6863 36 18 36H30C33.3137 36 36 33.3137 36 30V18" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 24C26.7614 24 29 21.7614 29 19C29 16.2386 26.7614 14 24 14C21.2386 14 19 16.2386 19 19C19 21.7614 21.2386 24 24 24Z" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    advisor: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M24 4C21 4 19 6 19 8C19 9 18 9 18 10C18 11 19 11 20 12L22 14L20 16C19 17 20 19 21 19H27C28 19 29 17 28 16L26 14L28 12C29 11 30 11 30 10C30 9 29 9 29 8C29 6 27 4 24 4Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 24V19" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    solution: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M10 20H24V34H10V20Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 20C24 14.477 28.477 10 34 10C39.523 10 44 14.477 44 20C44 25.523 39.523 30 34 30H32" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M34 15V25M36 13V27" stroke="currentColor" strokeWidth="1" />
+      </svg>
+    ),
+    tech: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M18 24C18 24 16 26 16 30C16 34 18 36 18 36" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M30 24C30 24 32 26 32 30C32 34 30 36 30 36" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 12V8M24 36V40M12 24H8M36 24H40" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    outsource: (
+      <svg viewBox="0 0 48 48" className={className} fill="none">
+        <path d="M12 16H24V28H12V16Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 16H36V28H24V16Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M24 28V40" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+  }
+  return icons[name] || null
+}
+
+// Radar Chart Component
+function RadarChart({ data, size, labels }: { data: number[]; size: number; labels: string[] }) {
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-full">
+        {[0, 1, 2, 3].map(i => (
+          <circle key={i} cx={size / 2} cy={size / 2} r={size / 2 * (i + 1) / 4} fill="none" stroke="#e2e8f0" strokeWidth="1" />
+        ))}
+        <polygon points={data.map((v, i) => {
+          const angle = (i / data.length) * 2 * Math.PI - Math.PI / 2
+          const r = (v / 100) * (size / 2)
+          return `${size / 2 + r * Math.cos(angle)},${size / 2 + r * Math.sin(angle)}`
+        }).join(' ')} fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" strokeWidth="2" />
+        {data.map((value, i) => {
+          const angle = (i / data.length) * 2 * Math.PI - Math.PI / 2
+          const radius = (value / 100) * (size / 2)
+          const x = size / 2 + radius * Math.cos(angle)
+          const y = size / 2 + radius * Math.sin(angle)
+          return <circle key={i} cx={x} cy={y} r="3" fill="#f59e0b" />
+        })}
+        {labels.map((label, i) => {
+          const angle = (i / labels.length) * 2 * Math.PI - Math.PI / 2
+          const radius = (size / 2) + 12
+          const x = size / 2 + radius * Math.cos(angle)
+          const y = size / 2 + radius * Math.sin(angle)
+          return <text key={i} x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="text-[10px] fill-slate-400 font-mono">{label}</text>
+        })}
+      </svg>
+    </div>
+  )
+}
+
+// Stat Counter Component
+function useCountUp(target: number, duration: number = 2000, start: number = 0) {
+  const [count, setCount] = useState(start)
+  const [isVisible, setIsVisible] = useState(false)
+  const elementRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+    if (elementRef.current) observer.observe(elementRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+    let startTime: number | null = null
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const easeProgress = 1 - Math.pow(1 - progress, 4)
+      setCount(Math.floor(start + (target - start) * easeProgress))
+      if (progress < 1) requestAnimationFrame(animate)
+    }
+    requestAnimationFrame(animate)
+  }, [target, duration, start, isVisible])
+
+  return count
+}
+
+function StatCard({ stat }: { stat: { value: number; suffix: string; label: string; delay: number } }) {
+  const count = useCountUp(stat.value, 2000, 0)
+  return (
+    <div ref={stat.delay === 0 ? undefined : undefined} className="text-center">
+      <div className="font-mono text-4xl text-slate-900 mb-1">{count}{stat.suffix}</div>
+      <div className="font-mono text-xs text-slate-500 tracking-wider">{stat.label}</div>
+    </div>
+  )
+}
+
+// Mobile Navigation Component
+function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const { t } = useI18n()
+  if (!isOpen) return null
+  return (
+    <div className="fixed inset-0 z-50 md:hidden">
+      <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed top-0 right-0 h-full w-72 bg-white shadow-xl transform transition-transform">
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-slate-900 flex items-center justify-center">
+                <span className="font-mono text-white text-sm font-bold">FA</span>
+              </div>
+              <span className="font-mono text-lg text-slate-900">FreeAI Audit</span>
+            </div>
+            <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-sm transition-colors" aria-label="Close menu">
+              <svg className="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <nav className="space-y-4">
+            <a href="#services" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">{t.nav.services}</a>
+            <a href="#process" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">{t.nav.process}</a>
+            <a href="#why-us" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">{t.nav.whyUs}</a>
+            <Link href="/contact" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">Audit</Link>
+            <Link href="/pricing" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">Pricing</Link>
+            <Link href="/contact" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100">Contact</Link>
+          </nav>
+          <Link href="/audit-form" onClick={onClose} className="mt-8 block w-full font-mono text-sm px-6 py-3 bg-amber-500 text-white text-center hover:bg-amber-600 transition-all tracking-wider">{t.nav.freeAudit}</Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function Home() {
+  const { t } = useI18n()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+  const services = [
+    { icon: 'automation', title: t.services.items[0].title, description: t.services.items[0].description, metrics: { label: t.services.items[0].metricLabel, value: 95, color: 'cyan' }, category: 'personal' },
+    { icon: 'assistant', title: t.services.items[1].title, description: t.services.items[1].description, metrics: { label: t.services.items[1].metricLabel, value: 23, color: 'orange' }, category: 'personal' },
+    { icon: 'library', title: t.services.items[2].title, description: t.services.items[2].description, metrics: { label: t.services.items[2].metricLabel, value: 12, color: 'amber' }, category: 'personal' },
+    { icon: 'robot', title: t.services.items[3].title, description: t.services.items[3].description, metrics: { label: t.services.items[3].metricLabel, value: 3.2, color: 'cyan' }, category: 'personal' },
+    { icon: 'audit', title: t.services.items[4].title, description: t.services.items[4].description, metrics: { label: t.services.items[4].metricLabel, value: 98, color: 'cyan' }, category: 'enterprise' },
+    { icon: 'advisor', title: t.services.items[5].title, description: t.services.items[5].description, metrics: { label: t.services.items[5].metricLabel, value: 95, color: 'amber' }, category: 'enterprise' },
+    { icon: 'solution', title: t.services.items[6].title, description: t.services.items[6].description, metrics: { label: t.services.items[6].metricLabel, value: 89, color: 'cyan' }, category: 'enterprise' },
+    { icon: 'tech', title: '技术 & 外包', description: '技术实施、集成、定制开发 | 项目整体外包，专业团队执行', metrics: { label: '交付质量', value: 96, color: 'cyan' }, category: 'enterprise' },
+  ]
+
+  const processSteps = [
+    { step: '01', title: t.process.steps[0].title, description: t.process.steps[0].description, duration: t.process.steps[0].duration },
+    { step: '02', title: t.process.steps[1].title, description: t.process.steps[1].description, duration: t.process.steps[1].duration },
+    { step: '03', title: t.process.steps[2].title, description: t.process.steps[2].description, duration: t.process.steps[2].duration },
+  ]
+
+  const stats = [
+    { value: 200, suffix: '+', label: t.whyUs.stats[0].label, delay: 0 },
+    { value: 27, suffix: '%', label: t.whyUs.stats[1].label, delay: 200 },
+    { value: 48, suffix: t.whyUs.stats[2].suffix, label: t.whyUs.stats[2].label, delay: 400 },
+    { value: 4.9, suffix: '/5', label: t.whyUs.stats[3].label, delay: 600 },
+  ]
+
+  const radarData = [85, 72, 91, 68, 79]
+  const radarLabels = [t.radar.strategy, t.radar.risk, t.radar.growth, t.radar.roi, t.radar.tech]
+
+  return (
+    <main className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 bg-slate-900 flex items-center justify-center">
+              <span className="font-mono text-white text-sm font-bold">FA</span>
+            </div>
+            <span className="font-mono text-lg text-slate-900 tracking-tight group-hover:text-slate-700 transition-colors">FreeAI Audit</span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#services" className="font-mono text-sm text-slate-600 hover:text-slate-900 transition-colors">{t.nav.services}</a>
+            <a href="#process" className="font-mono text-sm text-slate-600 hover:text-slate-900 transition-colors">{t.nav.process}</a>
+            <a href="#why-us" className="font-mono text-sm text-slate-600 hover:text-slate-900 transition-colors">{t.nav.whyUs}</a>
+            <Link href="/contact" className="font-mono text-sm text-slate-600 hover:text-slate-900 transition-colors">Audit</Link>
+          </nav>
+          <div className="flex items-center gap-4">
+            <LanguageToggle />
+            <button onClick={() => setMobileNavOpen(true)} className="md:hidden p-2 hover:bg-slate-100 rounded-sm transition-colors" aria-label="Open menu">
+              <svg className="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <Link href="/audit-form" className="hidden md:inline-block font-mono text-xs px-5 py-2.5 bg-slate-900 text-white hover:bg-slate-800 transition-colors tracking-wider">
+              {t.nav.freeAudit}
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Navigation */}
+      <MobileNav isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen pt-24 pb-16 px-6 md:px-8 lg:px-12 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-0" style={{
+          backgroundImage: `linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px', opacity: 0.4
+        }} />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block font-mono text-xs text-amber-600 bg-amber-50 px-3 py-1 mb-6">{t.hero.headline}</div>
+              <h1 className="font-mono text-4xl md:text-6xl text-slate-900 mb-6 leading-tight">{t.hero.title}</h1>
+              <p className="font-mono text-sm md:text-base text-slate-600 mb-8 leading-relaxed">{t.hero.description}</p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/audit-form" className="font-mono text-sm px-6 py-3 bg-amber-500 text-white hover:bg-amber-600 transition-colors tracking-wider">{t.hero.primaryCta}</Link>
+                <a href="#process" className="font-mono text-sm px-6 py-3 border border-slate-200 text-slate-900 hover:bg-slate-50 transition-colors tracking-wider">{t.hero.secondaryCta}</a>
+              </div>
+              <div className="mt-12 flex items-center gap-8">
+                <div><div className="font-mono text-3xl text-amber-500">200+</div><div className="font-mono text-xs text-slate-500 mt-1">{t.hero.customers}</div></div>
+                <div><div className="font-mono text-3xl text-amber-500">27%</div><div className="font-mono text-xs text-slate-500 mt-1">{t.hero.efficiencyGain}</div></div>
+                <div><div className="font-mono text-3xl text-slate-900">48h</div><div className="font-mono text-xs text-slate-500 mt-1">{t.hero.delivery}</div></div>
+              </div>
+            </div>
+            <div className="bg-white border border-slate-200 p-6 shadow-sm">
+              <RadarChart data={radarData} size={180} labels={radarLabels} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Levels Section */}
+      <section className="py-24 px-6 md:px-8 lg:px-12 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-12 bg-slate-600" />
+            <span className="font-mono text-xs text-slate-400 tracking-[0.2em]">Service Levels</span>
+            <div className="h-px w-12 bg-slate-600" />
+          </div>
+          <h2 className="font-mono text-3xl md:text-4xl text-white mb-16 text-center">L0 / L1 / L2 服务级别</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center bg-slate-800 p-6 rounded-lg">
+              <div className="font-mono text-5xl text-slate-500 mb-3">L0</div>
+              <div className="font-mono text-lg text-slate-300 mb-2">Free Audit</div>
+              <p className="font-mono text-xs text-slate-400 mb-4">入门级 AI 评估</p>
+              <div className="text-center text-sm text-slate-400">
+                <p className="mb-1">{t.pricing.l0Price}</p>
+                <span className="text-xs">{t.pricing.l0Description}</span>
+              </div>
+            </div>
+            <div className="text-center bg-slate-800 p-6 rounded-lg">
+              <div className="font-mono text-5xl text-amber-500 mb-3">L1</div>
+              <div className="font-mono text-lg text-slate-300 mb-2">Professional</div>
+              <p className="font-mono text-xs text-slate-400 mb-4">实施就绪计划</p>
+              <div className="text-center text-sm text-slate-400">
+                <p className="mb-1">{t.pricing.l1Price}</p>
+                <span className="text-xs">{t.pricing.l1Description}</span>
+              </div>
+            </div>
+            <div className="text-center bg-slate-800 p-6 rounded-lg">
+              <div className="font-mono text-5xl text-cyan-500 mb-3">L2</div>
+              <div className="font-mono text-lg text-slate-300 mb-2">Enterprise</div>
+              <p className="font-mono text-xs text-slate-400 mb-4">全面 AI 转型</p>
+              <div className="text-center text-sm text-slate-400">
+                <p className="mb-1">{t.pricing.l2Price}</p>
+                <span className="text-xs">{t.pricing.l2Description}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 px-6 md:px-8 lg:px-12 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="font-mono text-xs text-slate-400 tracking-[0.2em]">{t.services.sectionTitle}</span>
+            <div className="h-px flex-1 bg-slate-200" />
+          </div>
+          <h2 className="font-mono text-3xl md:text-4xl text-slate-900 mb-16 text-center">{t.services.headline}</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div key={index} className="group bg-slate-50 border border-slate-200 p-6 md:p-8 hover:border-slate-900 transition-all duration-300">
+                {service.category && (
+                  <div className={`inline-block font-mono text-xs px-3 py-1 mb-4 ${service.category === 'personal' ? 'bg-cyan-50 text-cyan-600' : 'bg-amber-50 text-amber-600'}`}>
+                    {service.category === 'personal' ? t.services.personalServices : t.services.enterpriseServices}
+                  </div>
+                )}
+                <div className="flex items-start gap-4 mb-4">
+                  <TechIcon name={service.icon} className="w-10 h-10 text-slate-900 group-hover:text-amber-500 transition-colors" />
+                  <div>
+                    <h3 className="font-mono text-lg text-slate-900 mb-1">{service.title}</h3>
+                    <p className="font-mono text-xs text-slate-500 tracking-wider">{t.services.service} {index + 1}</p>
+                  </div>
+                </div>
+                <p className="font-mono text-sm text-slate-600 leading-relaxed mb-6">{service.description}</p>
+                <div className="pt-4 border-t border-slate-200">
+                  <div className="flex justify-between items-center">
+                    <span className="font-mono text-xs text-slate-500">{service.metrics.label}</span>
+                    <span className="font-mono text-lg text-amber-500">{service.metrics.value}{service.metrics.label === t.services.items[1].metricLabel ? '' : service.metrics.label === t.services.items[3].metricLabel ? 'x' : '+'}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process" className="py-24 px-6 md:px-8 lg:px-12 bg-slate-100 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="font-mono text-xs text-slate-400 tracking-[0.2em]">{t.process.sectionTitle}</span>
+            <div className="h-px flex-1 bg-slate-200" />
+          </div>
+          <h2 className="font-mono text-3xl md:text-4xl text-slate-900 mb-16 text-center">{t.process.headline}</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {processSteps.map((step, index) => (
+              <div key={index} className="relative">
+                <div className="font-mono text-8xl text-slate-200 absolute -top-4 -right-4 -z-10 select-none">{step.step}</div>
+                <div className="bg-white border border-slate-200 p-6 md:p-8 h-full">
+                  <div className="inline-block font-mono text-xs text-amber-600 bg-amber-50 px-3 py-1 mb-4">{t.process.step} {step.step}</div>
+                  <h3 className="font-mono text-xl text-slate-900 mb-3">{step.title}</h3>
+                  <p className="font-mono text-sm text-slate-600 leading-relaxed mb-6">{step.description}</p>
+                  <div className="flex items-center gap-2 pt-4 border-t border-slate-100">
+                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="font-mono text-xs text-slate-500">{step.duration}</span>
+                  </div>
+                </div>
+                {index < 2 && <div className="hidden md:block absolute top-1/2 -right-4 w-8 border-t-2 border-dashed border-slate-300" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Us Section */}
+      <section id="why-us" className="py-24 px-6 md:px-8 lg:px-12 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px flex-1 bg-slate-700" />
+            <span className="font-mono text-xs text-slate-500 tracking-[0.2em]">{t.whyUs.sectionTitle}</span>
