@@ -1311,18 +1311,18 @@ export default function Home() {
       {/* ============================================ */}
       {/* Footer */}
       {/* ============================================ */}
-      <footer className="py-8 px-6 md:px-8 border-t border-slate-200 bg-white">
+      <footer className="py-8 px-6 md:px-8 border-t border-slate-200 bg-slate-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 bg-slate-900 flex items-center justify-center">
-              <span className="font-mono text-white text-xs font-bold">FA</span>
+            <div className="w-6 h-6 bg-amber-500 flex items-center justify-center">
+              <span className="font-mono text-slate-900 text-xs font-bold">FA</span>
             </div>
-            <span className="font-mono text-sm text-slate-600">FreeAI Audit</span>
+            <span className="font-mono text-sm text-white">FreeAI Audit</span>
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/audit-form" className="font-mono text-xs text-slate-500 hover:text-amber-500 transition-colors">Audit Form</Link>
-            <Link href="/contact" className="font-mono text-xs text-slate-500 hover:text-amber-500 transition-colors">Contact</Link>
-            <Link href="/pricing" className="font-mono text-xs text-slate-500 hover:text-amber-500 transition-colors">Pricing</Link>
+            <Link href="/audit-form" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Audit Form</Link>
+            <Link href="/contact" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Contact</Link>
+            <Link href="/pricing" className="font-mono text-xs text-slate-300 hover:text-amber-500 transition-colors">Pricing</Link>
           </div>
           <div className="font-mono text-xs text-slate-400">{t.footer.copyright}</div>
         </div>
