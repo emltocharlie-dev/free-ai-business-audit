@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useI18n } from '../contexts/I18nContext'
 import { LanguageToggle } from '../components/LanguageToggle'
 import { HeroDashboard } from '../components/dashboard/HeroDashboard'
+import { Button } from '../components/Button'
 
 // ============================================
 // TechIcon - 科技感线性发光风格 Icon 组件
@@ -776,12 +777,14 @@ export default function Home() {
                 <path strokeLinecap="square" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <Link 
-              href="/audit-form" 
-              className="hidden md:inline-block font-mono text-xs px-6 py-3 bg-slate-900 text-white hover:bg-amber-500 transition-colors tracking-wider"
+            <Button
+              href="/audit-form"
+              variant="dark"
+              size="sm"
+              className="hidden md:inline-flex"
             >
               {t.nav.freeAudit}
-            </Link>
+            </Button>
           </div>
         </div>
       </header>
@@ -1246,21 +1249,25 @@ export default function Home() {
 
           {/* CTA 按钮组 */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Link 
-              href="/audit-form" 
-              className="group font-mono text-sm px-10 py-5 bg-amber-500 text-slate-900 hover:bg-amber-400 transition-all tracking-wider flex items-center gap-3 shadow-lg shadow-amber-500/20"
+            <Button
+              href="/audit-form"
+              variant="primary"
+              size="lg"
+              rightIcon={
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              }
             >
               {t.dashboard.home.cta.buttonFree}
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link 
-              href="/contact" 
-              className="font-mono text-sm px-10 py-5 border border-white/20 text-white hover:bg-white/5 transition-all tracking-wider"
+            </Button>
+            <Button
+              href="/contact"
+              variant="outline"
+              size="lg"
             >
               {t.dashboard.home.cta.buttonContact}
-            </Link>
+            </Button>
           </div>
 
           {/* 保障标签 */}
