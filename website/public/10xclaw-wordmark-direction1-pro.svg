@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 320" fill="none">
+  <defs>
+    <!-- Direction 1: Pro / restrained (B2B) -->
+    <linearGradient id="gradPro" x1="240" y1="70" x2="1180" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2DD4BF"/>
+      <stop offset="0.55" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <!-- subtle edge contrast so it doesn't "float" on white -->
+    <filter id="softShadow" x="-20%" y="-50%" width="140%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0B1220" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- NOTE: This uses text for preview; final production can be converted to paths after you approve. -->
+  <g filter="url(#softShadow)">
+    <text
+      x="120" y="220"
+      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Arial"
+      font-size="150"
+      font-weight="800"
+      letter-spacing="4"
+      fill="url(#gradPro)"
+      stroke="#0B1220"
+      stroke-opacity="0.18"
+      stroke-width="4"
+      paint-order="stroke fill"
+    >10XCLAW</text>
+  </g>
+</svg>
