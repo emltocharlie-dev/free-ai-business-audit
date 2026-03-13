@@ -1,58 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 320" fill="none">
   <defs>
-    <linearGradient id="grad" x1="160" y1="60" x2="1240" y2="260" gradientUnits="userSpaceOnUse">
+    <linearGradient id="g" x1="140" y1="70" x2="1260" y2="250" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2DD4BF"/>
       <stop offset="0.55" stop-color="#22D3EE"/>
       <stop offset="1" stop-color="#38BDF8"/>
     </linearGradient>
   </defs>
 
-  <!-- Path-only wordmark: 10XCLAW (pro) -->
-  <g fill="url(#grad)" stroke="#0B1220" stroke-opacity="0.14" stroke-width="4" paint-order="stroke fill">
-    <path d="M150 70 L210 70 L210 250 L150 250 Z"/>
-    <path d="M130 95 L180 60 L230 95 L210 125 L180 100 L150 125 Z"/>
-    <path fill-rule="evenodd" d="
-      M320 60
-      C380 60 430 110 430 160
-      C430 210 380 260 320 260
-      C260 260 210 210 210 160
-      C210 110 260 60 320 60
-      Z
-      M320 110
-      C288 110 262 136 262 160
-      C262 184 288 210 320 210
-      C352 210 378 184 378 160
-      C378 136 352 110 320 110
-      Z"/>
-    <path d="M470 60 L545 60 L620 145 L695 60 L770 60 L660 160 L770 260 L695 260 L620 175 L545 260 L470 260 L580 160 Z"/>
-    <path fill-rule="evenodd" d="
-      M930 80
-      C880 60 820 60 770 92
-      C722 123 690 178 702 230
-      C714 284 764 320 820 320
-      C868 320 910 304 938 284
-      L900 236
-      C878 252 850 260 822 260
-      C786 260 754 236 754 198
-      C754 156 788 120 830 120
-      C858 120 884 128 906 142
-      L940 92
-      Z" transform="translate(0,-40)"/>
-    <path d="M960 70 L1020 70 L1020 200 L1125 200 L1125 250 L960 250 Z"/>
-    <path fill-rule="evenodd" d="
-      M1185 250
-      L1120 250
-      L1198 70
-      L1270 70
-      L1348 250
-      L1283 250
-      L1268 214
-      L1200 214
-      Z
-      M1217 165
-      L1251 165
-      L1234 118
-      Z"/>
-    <path d="M1350 70 L1410 70 L1450 198 L1490 70 L1550 70 L1488 250 L1428 250 L1380 122 L1332 250 L1272 250 L1210 70 L1270 70 L1310 198 L1350 70 Z" transform="translate(-120,0)"/>
+  <!-- Geometric path-only wordmark (no system fonts): 10XCLAW -->
+  <g fill="url(#g)">
+    <!-- metrics -->
+    <!-- baseline y: 250; cap y: 80 -->
+
+    <!-- 1 -->
+    <path d="M140 90h52v160h-52z"/>
+    <path d="M120 120l46-50 46 50-28 26-18-20-18 20z"/>
+
+    <!-- 0 (outer - inner via evenodd) -->
+    <path fill-rule="evenodd" d="M310 80c60 0 108 48 108 112s-48 112-108 112-108-48-108-112 48-112 108-112Zm0 52c-30 0-56 26-56 60s26 60 56 60 56-26 56-60-26-60-56-60Z"/>
+
+    <!-- X -->
+    <path d="M454 90h66l66 74 66-74h66l-100 112 100 112h-66l-66-74-66 74h-66l100-112z"/>
+
+    <!-- C -->
+    <path d="M872 118c-26-18-62-22-92-10-36 14-60 48-60 86 0 38 24 72 60 86 30 12 66 8 92-10l-34-44c-14 10-32 12-48 6-18-8-30-26-30-38s12-30 30-38c16-6 34-4 48 6z"/>
+
+    <!-- L -->
+    <path d="M902 90h54v160h118v54H902z"/>
+
+    <!-- A (outer and inner counter) -->
+    <path fill-rule="evenodd" d="M1100 304h-58l78-214h74l78 214h-58l-14-40h-86l-14 40Zm44-92h50l-25-74-25 74Z"/>
+
+    <!-- W -->
+    <path d="M1280 90h54l38 142 38-142h54l-62 214h-54l-44-150-44 150h-54z" transform="translate(-70,0)"/>
   </g>
 </svg>
