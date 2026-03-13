@@ -756,7 +756,7 @@ export default function Home() {
       {/* ============================================ */}
       {/* Header */}
       {/* ============================================ */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-md border-b border-slate-200">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-slate-900 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
@@ -1272,7 +1272,7 @@ export default function Home() {
               size="lg"
               className="border-white/40 text-white hover:bg-white/10 hover:border-white/55"
             >
-              {t.dashboard.home.cta.buttonContact}
+              <span className="text-white">{t.dashboard.home.cta.buttonContact}</span>
             </Button>
           </div>
 
