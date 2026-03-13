@@ -6,6 +6,8 @@ import { LanguageToggle } from '../../components/LanguageToggle'
 import { Card } from '../../components/Card'
 import { Button } from '../../components/Button'
 
+const CONTACT_EMAIL = 'eml.tocharlie@gmail.com'
+
 export default function ContactPage() {
   const { t } = useI18n()
 
@@ -22,12 +24,13 @@ export default function ContactPage() {
           </Link>
           <div className="flex items-center gap-4">
             <LanguageToggle />
-            <Link
-              href="/"
-              className="font-mono text-xs px-4 py-2 border border-slate-300 text-slate-600 hover:text-slate-900 hover:border-slate-400 transition-colors tracking-wider"
+            <Button
+              href={`mailto:${CONTACT_EMAIL}`}
+              variant="outline"
+              size="sm"
             >
-              {t.nav.backToHome}
-            </Link>
+              发送邮件
+            </Button>
             <Button href="/audit-form" variant="primary" size="sm">
               {t.nav.freeAudit}
             </Button>
@@ -49,20 +52,6 @@ export default function ContactPage() {
         </div>
 
         <div className="grid gap-4">
-          <Card variant="elevated" className="p-6">
-            <div className="font-mono text-sm text-slate-900 font-bold mb-3">{t.contact.contactInfo}</div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <div className="font-mono text-xs text-slate-500">{t.contact.responseTime}</div>
-                <div className="font-mono text-sm text-slate-900">{t.contact.responseTimeValue}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="font-mono text-xs text-slate-500">{t.contact.businessHours}</div>
-                <div className="font-mono text-sm text-slate-900">{t.contact.businessHoursValue}</div>
-              </div>
-            </div>
-          </Card>
-
           <Card variant="bordered" accent="cyan" className="p-6">
             <div className="font-mono text-sm text-slate-900 font-bold mb-2">{t.contact.send}</div>
             <p className="font-mono text-xs text-slate-600 leading-relaxed mb-4">
@@ -72,17 +61,28 @@ export default function ContactPage() {
               <Button href="/audit-form" variant="primary" size="md" className="justify-center">
                 {t.nav.freeAudit}
               </Button>
-              <Button href="/" variant="outline" size="md" className="justify-center">
-                {t.nav.backToHome}
+              <Button
+                href={`mailto:${CONTACT_EMAIL}`}
+                variant="outline"
+                size="md"
+                className="justify-center"
+              >
+                发送邮件
               </Button>
+            </div>
+            <div className="mt-4 font-mono text-xs text-slate-500">
+              {CONTACT_EMAIL}
             </div>
           </Card>
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/" className="font-mono text-xs text-slate-400 hover:text-slate-600 transition-colors">
-            {t.nav.backToHomeShort}
-          </Link>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="font-mono text-xs text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            发送邮件：{CONTACT_EMAIL}
+          </a>
         </div>
       </div>
 

@@ -765,11 +765,11 @@ export default function Home() {
             <span className="font-mono text-lg text-slate-900 tracking-tight group-hover:text-amber-500 transition-colors">FreeAI Audit</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="font-mono text-sm text-cyan-500 hover:text-amber-500 transition-colors">{t.dashboard.home.navHome}</Link>
-            <a href="#services" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.services}</a>
-            <a href="#process" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.process}</a>
-            <a href="#why-us" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.nav.whyUs}</a>
-            <Link href="#cta" className="font-mono text-sm text-slate-600 hover:text-amber-500 transition-colors">{t.dashboard.home.navAudit}</Link>
+            <Link href="/" className="font-mono text-sm text-slate-900 hover:text-amber-500 transition-colors">{t.dashboard.home.navHome}</Link>
+            <a href="#services" className="font-mono text-sm text-slate-800 hover:text-amber-500 transition-colors">{t.nav.services}</a>
+            <a href="#process" className="font-mono text-sm text-slate-800 hover:text-amber-500 transition-colors">{t.nav.process}</a>
+            <a href="#why-us" className="font-mono text-sm text-slate-800 hover:text-amber-500 transition-colors">{t.nav.whyUs}</a>
+            <Link href="#cta" className="font-mono text-sm text-slate-800 hover:text-amber-500 transition-colors">{t.dashboard.home.navAudit}</Link>
           </nav>
           <div className="flex items-center gap-4">
             <LanguageToggle />
