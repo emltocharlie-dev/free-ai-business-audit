@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="g" x1="120" y1="100" x2="420" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBBF24"/>
+      <stop offset="0.55" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- minimal monogram: X as core, C as negative claw -->
+  <g>
+    <!-- X core -->
+    <path d="M156 152L356 360" stroke="url(#g)" stroke-width="34" stroke-linecap="square"/>
+    <path d="M356 152L156 360" stroke="url(#g)" stroke-width="34" stroke-linecap="square"/>
+
+    <!-- C arc wrapping (brand container) -->
+    <path d="M354 152c-42-34-98-54-158-54-116 0-210 88-210 196s94 196 210 196c60 0 116-20 158-54" stroke="#0B1220" stroke-opacity="0.22" stroke-width="28" stroke-linecap="round"/>
+
+    <!-- claw notch: 3 precise cuts -->
+    <path d="M392 236l44-22" stroke="#F59E0B" stroke-width="12" stroke-linecap="square"/>
+    <path d="M392 274l46-18" stroke="#F59E0B" stroke-width="12" stroke-linecap="square" opacity="0.8"/>
+    <path d="M388 310l44-14" stroke="#F59E0B" stroke-width="12" stroke-linecap="square" opacity="0.6"/>
+
+    <!-- small 10× hint -->
+    <path d="M120 126v54" stroke="#0B1220" stroke-opacity="0.35" stroke-width="16" stroke-linecap="square"/>
+    <circle cx="158" cy="154" r="22" stroke="#0B1220" stroke-opacity="0.35" stroke-width="16"/>
+  </g>
+</svg>

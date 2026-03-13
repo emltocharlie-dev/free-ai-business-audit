@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="ring" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- outer seal -->
+  <circle cx="256" cy="256" r="178" stroke="url(#ring)" stroke-width="18"/>
+  <circle cx="256" cy="256" r="140" stroke="#0B1220" stroke-opacity="0.25" stroke-width="10"/>
+
+  <!-- tick marks -->
+  <g stroke="#94A3B8" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round">
+    <path d="M256 66v22"/>
+    <path d="M256 424v22"/>
+    <path d="M66 256h22"/>
+    <path d="M424 256h22"/>
+    <path d="M124 124l16 16"/>
+    <path d="M372 372l16 16"/>
+    <path d="M388 124l-16 16"/>
+    <path d="M140 372l-16 16"/>
+  </g>
+
+  <!-- inner mark: stylized X with claw hook -->
+  <g>
+    <!-- X -->
+    <path d="M188 182L324 330" stroke="#F59E0B" stroke-width="28" stroke-linecap="square"/>
+    <path d="M324 182L188 330" stroke="#F59E0B" stroke-width="28" stroke-linecap="square"/>
+
+    <!-- claw hook (trust + capture) -->
+    <path d="M332 248c32 0 58 26 58 58 0 26-18 50-44 56" stroke="#22D3EE" stroke-width="18" stroke-linecap="round"/>
+    <path d="M348 360l-10-22 24 6" fill="#22D3EE"/>
+
+    <!-- small "10" accent -->
+    <path d="M160 292v58" stroke="#0B1220" stroke-opacity="0.55" stroke-width="14" stroke-linecap="square"/>
+    <circle cx="196" cy="320" r="26" stroke="#0B1220" stroke-opacity="0.55" stroke-width="14"/>
+  </g>
+
+</svg>
