@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Direction C: Claw Forward - dynamic green to amber for growth + momentum -->
+    <linearGradient id="clawGrad" x1="80" y1="100" x2="432" y2="412" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22C55E"/>
+      <stop offset="0.6" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#EF4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mark: Dynamic claw swipe with forward motion -->
+  <g>
+    <!-- Motion arc (swoosh background) -->
+    <path d="M140 380 C180 280 280 180 380 140" stroke="url(#clawGrad)" stroke-width="18" stroke-linecap="round" opacity="0.4"/>
+    <path d="M170 360 C200 280 260 220 340 190" stroke="url(#clawGrad)" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
+
+    <!-- Main claw: 3 dynamic talons -->
+    <path d="M200 280 L280 200 L320 220 L240 320 Z" fill="url(#clawGrad)"/>
+    <path d="M260 300 L340 220 L380 240 L300 340 Z" fill="url(#clawGrad)"/>
+    <path d="M320 320 L400 240 L440 260 L360 360 Z" fill="url(#clawGrad)"/>
+
+    <!-- X integration (hidden in claw structure) -->
+    <path d="M180 200 L260 280" stroke="url(#clawGrad)" stroke-width="14" stroke-linecap="square" opacity="0.8"/>
+    <path d="M260 200 L180 280" stroke="url(#clawGrad)" stroke-width="14" stroke-linecap="square" opacity="0.6"/>
+
+    <!-- Forward arrow suggestion -->
+    <path d="M340 140 L380 100 L420 140" stroke="url(#clawGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Speed lines -->
+    <path d="M120 300 L160 280" stroke="url(#clawGrad)" stroke-width="6" stroke-linecap="square" opacity="0.5"/>
+    <path d="M130 340 L170 320" stroke="url(#clawGrad)" stroke-width="6" stroke-linecap="square" opacity="0.5"/>
+    <path d="M140 380 L180 360" stroke="url(#clawGrad)" stroke-width="6" stroke-linecap="square" opacity="0.5"/>
+  </g>
+</svg>

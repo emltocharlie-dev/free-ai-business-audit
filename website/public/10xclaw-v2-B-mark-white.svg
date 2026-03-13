@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Direction B: Audit Shield - Monochrome White -->
+  <g stroke="#FFFFFF" fill="#FFFFFF">
+    <!-- Shield outline -->
+    <path d="M256 52 C180 52 120 80 120 140 L120 220 C120 340 180 420 256 460 C332 420 392 340 392 220 L392 140 C392 80 332 52 256 52 Z" stroke="#FFFFFF" stroke-width="24" fill="none"/>
+
+    <!-- Inner shield border -->
+    <path d="M256 88 C196 88 156 110 156 156 L156 228 C156 320 200 384 256 416 C312 384 356 320 356 228 L356 156 C356 110 316 88 256 88 Z" stroke="#FFFFFF" stroke-width="12" opacity="0.5" fill="none"/>
+
+    <!-- X mark -->
+    <path d="M196 196 L316 316" stroke="#FFFFFF" stroke-width="22" stroke-linecap="square"/>
+    <path d="M316 196 L196 316" stroke="#FFFFFF" stroke-width="22" stroke-linecap="square"/>
+
+    <!-- Check mark -->
+    <path d="M160 256 L236 332 L352 180" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Tick marks -->
+    <path d="M256 64 L256 80" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+    <path d="M256 432 L256 448" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+    <path d="M128 180 L144 180" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+    <path d="M368 180 L384 180" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+    <path d="M148 320 L164 312" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+    <path d="M348 320 L364 312" stroke="#FFFFFF" stroke-width="8" stroke-linecap="square"/>
+
+    <!-- Claw hint -->
+    <path d="M330 380 L360 368" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square"/>
+    <path d="M340 400 L370 392" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square" opacity="0.7"/>
+  </g>
+</svg>
