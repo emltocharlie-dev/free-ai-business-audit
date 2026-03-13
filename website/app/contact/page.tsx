@@ -72,8 +72,8 @@ export default function ContactPage() {
               <Button href="/audit-form" variant="primary" size="md" className="justify-center">
                 {t.nav.freeAudit}
               </Button>
-              <Button href="/pricing" variant="outline" size="md" className="justify-center">
-                Pricing
+              <Button href="/services" variant="outline" size="md" className="justify-center">
+                {t.nav.services}
               </Button>
             </div>
           </Card>

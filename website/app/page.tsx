@@ -1344,12 +1344,6 @@ export default function Home() {
             >
               Contact
             </Link>
-            <Link
-              href="/pricing"
-              className="font-mono text-xs text-slate-300 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-            >
-              Pricing
-            </Link>
           </div>
           <div className="font-mono text-xs text-slate-300/80">{t.footer.copyright}</div>
         </div>

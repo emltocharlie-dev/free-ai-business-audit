@@ -238,12 +238,12 @@ export default function ServicesPage() {
                 <div className="flex items-center justify-between pt-3 border-t border-slate-100">
                   <span className="font-mono text-xs text-cyan-600 font-bold">{service.price}</span>
                   <Button
-                    href="/pricing"
+                    href="/audit-form"
                     variant="outline"
                     size="sm"
                     className="min-h-[36px] min-w-[44px]"
                   >
-                    {t.servicesPage.learnMore}
+                    {t.nav.freeAudit}
                   </Button>
                 </div>
               </div>
