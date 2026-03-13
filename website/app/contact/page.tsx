@@ -70,9 +70,6 @@ export default function ContactPage() {
                 发送邮件
               </Button>
             </div>
-            <div className="mt-4 font-mono text-xs text-slate-500">
-              {CONTACT_EMAIL}
-            </div>
           </Card>
         </div>
 
@@ -81,7 +78,7 @@ export default function ContactPage() {
             href={`mailto:${CONTACT_EMAIL}`}
             className="font-mono text-xs text-slate-500 hover:text-slate-900 transition-colors"
           >
-            发送邮件：{CONTACT_EMAIL}
+            发送邮件
           </a>
         </div>
       </div>
