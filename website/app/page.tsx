@@ -541,8 +541,8 @@ function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
         <div className="p-6">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-slate-900 flex items-center justify-center">
-                <span className="font-mono text-white text-sm font-bold">FA</span>
+              <div className="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center">
+                <img src="/10xclaw-logo-C-monogram.svg" alt="10xclaw" className="w-6 h-6" />
               </div>
               <span className="font-mono text-lg text-slate-900">FreeAI Audit</span>
             </div>
@@ -759,8 +759,12 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-slate-900 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
-              <span className="font-mono text-white text-sm font-bold">FA</span>
+            <div className="w-10 h-10 bg-white border border-slate-200 flex items-center justify-center group-hover:border-amber-400 transition-colors">
+              <img
+                src="/10xclaw-logo-C-monogram.svg"
+                alt="10xclaw"
+                className="w-7 h-7"
+              />
             </div>
             <span className="font-mono text-lg text-slate-900 tracking-tight group-hover:text-amber-500 transition-colors">FreeAI Audit</span>
           </Link>
@@ -1327,8 +1331,8 @@ export default function Home() {
       <footer className="relative z-20 py-8 px-6 md:px-8 border-t border-slate-700/60 bg-slate-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 bg-amber-500 flex items-center justify-center">
-              <span className="font-mono text-slate-900 text-xs font-bold">FA</span>
+            <div className="w-6 h-6 bg-white border border-slate-700/60 flex items-center justify-center">
+              <img src="/10xclaw-logo-C-monogram.svg" alt="10xclaw" className="w-4 h-4" />
             </div>
             <span className="font-mono text-sm text-white">FreeAI Audit</span>
           </div>

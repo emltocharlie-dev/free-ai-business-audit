@@ -14,8 +14,8 @@ export default function AuditForm() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-slate-900 flex items-center justify-center">
-              <span className="font-mono text-white text-sm font-bold">FA</span>
+            <div className="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center">
+              <img src="/10xclaw-logo-C-monogram.svg" alt="10xclaw" className="w-6 h-6" />
             </div>
             <span className="font-mono text-lg text-slate-900 tracking-tight group-hover:text-slate-700 transition-colors">FreeAI Audit</span>
           </Link>
@@ -104,8 +104,8 @@ export default function AuditForm() {
       <footer className="mt-16 py-8 px-4 border-t border-slate-200">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 bg-slate-900 flex items-center justify-center">
-              <span className="font-mono text-white text-xs font-bold">FA</span>
+            <div className="w-6 h-6 bg-white border border-slate-200 flex items-center justify-center">
+              <img src="/10xclaw-logo-C-monogram.svg" alt="10xclaw" className="w-4 h-4" />
             </div>
             <span className="font-mono text-sm text-slate-600">FreeAI Audit</span>
           </div>
