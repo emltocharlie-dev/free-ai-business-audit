@@ -775,7 +775,8 @@ export default function Home() {
             <LanguageToggle />
             <button 
               onClick={() => setMobileNavOpen(true)} 
-              className="md:hidden p-2 hover:bg-slate-100 rounded transition-colors"
+              className="md:hidden p-3 hover:bg-slate-100 rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
+              aria-label="Open menu"
             >
               <svg className="w-6 h-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="square" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
