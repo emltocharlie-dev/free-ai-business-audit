@@ -546,7 +546,11 @@ function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
               </div>
               <span className="font-mono text-lg text-slate-900">FreeAI Audit</span>
             </div>
-            <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded transition-colors">
+            <button
+              onClick={onClose}
+              className="p-3 hover:bg-slate-100 rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              aria-label="Close menu"
+            >
               <svg className="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="square" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -556,7 +560,7 @@ function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
             <a href="#services" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-amber-500 py-3 px-4 hover:bg-slate-50 rounded transition-colors">{t.nav.services}</a>
             <a href="#process" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-amber-500 py-3 px-4 hover:bg-slate-50 rounded transition-colors">{t.nav.process}</a>
             <a href="#why-us" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-amber-500 py-3 px-4 hover:bg-slate-50 rounded transition-colors">{t.nav.whyUs}</a>
-            <Link href="/contact" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-amber-500 py-3 px-4 hover:bg-slate-50 rounded transition-colors">Audit Form</Link>
+            <Link href="/audit-form" onClick={onClose} className="block font-mono text-sm text-slate-600 hover:text-amber-500 py-3 px-4 hover:bg-slate-50 rounded transition-colors">Audit Form</Link>
           </nav>
           <div className="mt-8 pt-8 border-t border-slate-100">
             <Link 
