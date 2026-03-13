@@ -759,7 +759,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
             <img
-              src="/10xclaw-wordmark-pro-path.svg"
+              src="/10xclaw-brand-v1-lockup-horizontal.svg"
               alt="10xclaw"
               className="h-7 w-auto"
             />

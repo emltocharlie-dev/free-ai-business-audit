@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- black-teal tech palette -->
+    <linearGradient id="ring" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="x" x1="160" y1="150" x2="372" y2="372" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2DD4BF"/>
+      <stop offset="0.55" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Audit ring (trust / verification) -->
+  <circle cx="256" cy="256" r="176" stroke="url(#ring)" stroke-width="22"/>
+  <circle cx="256" cy="256" r="138" stroke="#0B1220" stroke-opacity="0.18" stroke-width="10"/>
+
+  <!-- ticks -->
+  <g stroke="#0B1220" stroke-opacity="0.18" stroke-width="10" stroke-linecap="round">
+    <path d="M256 64v26"/>
+    <path d="M256 422v26"/>
+    <path d="M64 256h26"/>
+    <path d="M422 256h26"/>
+    <path d="M124 124l18 18"/>
+    <path d="M370 370l18 18"/>
+    <path d="M388 124l-18 18"/>
+    <path d="M142 370l-18 18"/>
+  </g>
+
+  <!-- X core (10×) - blade geometry, path only -->
+  <g fill="url(#x)">
+    <path d="M164 168h68l76 86 76-86h68l-110 126 110 126h-68l-76-86-76 86h-68l110-126z"/>
+  </g>
+
+  <!-- Check notch (audit pass) - subtle amber cue -->
+  <path d="M356 252l18 18 44-44" stroke="#F59E0B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+</svg>

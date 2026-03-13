@@ -1,25 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 320" fill="none">
   <defs>
-    <!-- Direction 1 (Pro): restrained teal→cyan→sky gradient + subtle edge contrast -->
     <linearGradient id="grad" x1="160" y1="60" x2="1240" y2="260" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2DD4BF"/>
       <stop offset="0.55" stop-color="#22D3EE"/>
       <stop offset="1" stop-color="#38BDF8"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-50%" width="140%" height="200%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0B1220" flood-opacity="0.14"/>
-    </filter>
   </defs>
 
-  <!-- All-path geometric wordmark: 10XCLAW -->
-  <!-- Style: heavy, slightly tech, consistent with B2B. -->
-  <g filter="url(#shadow)" fill="url(#grad)" stroke="#0B1220" stroke-opacity="0.16" stroke-width="4" paint-order="stroke fill">
-
-    <!-- 1 -->
+  <!-- Path-only wordmark: 10XCLAW (pro) -->
+  <g fill="url(#grad)" stroke="#0B1220" stroke-opacity="0.14" stroke-width="4" paint-order="stroke fill">
     <path d="M150 70 L210 70 L210 250 L150 250 Z"/>
     <path d="M130 95 L180 60 L230 95 L210 125 L180 100 L150 125 Z"/>
-
-    <!-- 0 (outer - inner using evenodd) -->
     <path fill-rule="evenodd" d="
       M320 60
       C380 60 430 110 430 160
@@ -33,11 +24,7 @@
       C352 210 378 184 378 160
       C378 136 352 110 320 110
       Z"/>
-
-    <!-- X (two blades) -->
     <path d="M470 60 L545 60 L620 145 L695 60 L770 60 L660 160 L770 260 L695 260 L620 175 L545 260 L470 260 L580 160 Z"/>
-
-    <!-- C -->
     <path fill-rule="evenodd" d="
       M930 80
       C880 60 820 60 770 92
@@ -50,14 +37,8 @@
       C754 156 788 120 830 120
       C858 120 884 128 906 142
       L940 92
-      C940 92 940 92 940 92
-      C940 92 940 92 940 92
       Z" transform="translate(0,-40)"/>
-
-    <!-- L -->
     <path d="M960 70 L1020 70 L1020 200 L1125 200 L1125 250 L960 250 Z"/>
-
-    <!-- A (outer - inner counter) -->
     <path fill-rule="evenodd" d="
       M1185 250
       L1120 250
@@ -72,9 +53,6 @@
       L1251 165
       L1234 118
       Z"/>
-
-    <!-- W -->
     <path d="M1350 70 L1410 70 L1450 198 L1490 70 L1550 70 L1488 250 L1428 250 L1380 122 L1332 250 L1272 250 L1210 70 L1270 70 L1310 198 L1350 70 Z" transform="translate(-120,0)"/>
-
   </g>
 </svg>
